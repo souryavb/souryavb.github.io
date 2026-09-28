@@ -1,7 +1,8 @@
 .DS_Store
 Thumbs.db
 
-# UI/UX Pro Max skill files (installed via `uipro init --ai claude`).
-# ~172 files / 4.8MB of local tooling — GitHub Pages would serve these publicly.
-# Reinstall with: uipro init --ai claude
+# Agent skill files — local tooling, and Pages would serve them publicly.
+# ~172 files / 4.8MB. Reinstall with: uipro init --ai claude
 .claude/
+# ~107 files / 948KB. Reinstall from skills-lock.json with: npx skills install
+.agents/
