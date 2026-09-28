@@ -6,10 +6,12 @@ dependencies. Open `index.html` in a browser and what you see is what deploys.
 ## Structure
 
 ```
-index.html                          Hero, projects, experience, about, contact
+index.html                          Intro, work map, experience, about, contact
 404.html                            Shown for unknown URLs
-css/style.css                       All styling (design tokens at the top)
-js/main.js                          Footer year + click-to-zoom for gallery images
+design.md                           The design system: read before changing a page
+css/tokens.css                      Every colour, font, and spacing value
+css/style.css                       All styling, built only from tokens.css
+js/main.js                          Work map connectors, footer year, click-to-zoom
 assets/img/                         SVG graphics, one per project
 projects/
   okta-meeting-app.html             Bain Capital, 2026
@@ -31,17 +33,21 @@ local server matches how GitHub Pages serves them.
 ## Adding a project
 
 1. Copy `projects/_template.html` to `projects/your-project.html`.
-2. Fill in everything marked `TODO`.
-3. Copy an `<article class="tile">` block in `index.html` and point it at the new page.
-4. Fix the `.pager` links at the bottom of the neighbouring project pages.
+2. Set `data-lane` on `<body>` to `infra` or `analysis`, and fill in everything marked `TODO`.
+3. In `index.html`, copy a `<li>` inside the right lane of the work map and point it at the
+   new page. List the tools it used in `data-tools`, and add a `.tool` chip for any tool
+   that isn't in the middle column yet. The connectors draw themselves.
+4. Fix the Previous / Next links at the bottom of the neighbouring project pages.
 
 ## Things worth knowing
 
 - **Images are optional.** Every project uses a hand-written SVG in `assets/img/` rather than
   a photo, so nothing renders as a broken image. Swap in real screenshots when you have them —
   put them in `.gallery` blocks and they become click-to-zoom automatically.
-- **To use a headshot** in the hero, replace the `<div class="render">` block in `index.html`
-  with `<img class="hero-photo" src="assets/img/headshot.jpg" alt="Sourya Beesabathuni">`.
+- **The SVGs can't read the CSS tokens**, because they load as `<img>`. Their colours are
+  hard-coded hex values that match `css/tokens.css`, so change both if the palette changes.
+- **The work map needs no JavaScript to be usable.** Without it, or on screens narrower than
+  60em, it's two plain lists with the tools written under each project.
 - **The RSI backtest numbers are real**, from a run over ^GSPC 2020-01-01 to 2026-09-27. If you
   re-run it the numbers will move, since the end date is "today" by default. Re-run with
   `python rsi_trader.py --start 2020-01-01 --end 2026-09-27` to reproduce exactly what's on the

@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Diagram: Workday and ServiceNow feed an app running on Kubernetes, which posts to Slack and an Okta tile">
   <style>
-    .box   { fill: #ffffff; stroke: #c9ccd1; stroke-width: 2.5; }
-    .core  { fill: #1b3a4b; stroke: none; }
-    .arrow { stroke: #5a5f66; stroke-width: 2.5; fill: none; marker-end: url(#a); }
-    .t     { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 20px; font-weight: 600; text-anchor: middle; }
-    .tw    { fill: #ffffff; font-family: Archivo, system-ui, sans-serif; font-weight: 700; text-anchor: middle; }
-    .sub   { fill: #c9d3d9; font-family: Archivo, system-ui, sans-serif; font-size: 17px; text-anchor: middle; }
-    .title { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+    .box   { fill: #f8f5ef; stroke: #bcb8b0; stroke-width: 2.5; }
+    .core  { fill: #ac430e; stroke: none; }
+    .arrow { stroke: #65635e; stroke-width: 2.5; fill: none; marker-end: url(#a); }
+    .t     { fill: #151412; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 20px; font-weight: 600; text-anchor: middle; }
+    .tw    { fill: #f8f5ef; font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; text-anchor: middle; }
+    .sub   { fill: #f3d6c4; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 17px; text-anchor: middle; }
+    .title { fill: #151412; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
   </style>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#5a5f66"/>
+      <path d="M0 0 L10 5 L0 10 z" fill="#65635e"/>
     </marker>
   </defs>
 
@@ -43,6 +43,6 @@
   <!-- Reach -->
   <rect class="box" x="230" y="430" width="340" height="80" rx="16"/>
   <text class="t"   x="400" y="465">Firmwide rollout</text>
-  <text class="t"   x="400" y="492" font-size="17" fill="#5a5f66">every employee, every morning</text>
+  <text class="t"   x="400" y="492" font-size="17" fill="#65635e">every employee, every morning</text>
   <path class="arrow" d="M400 294 V426"/>
 </svg>

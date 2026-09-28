@@ -5,94 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S&amp;P 500 RSI Mean Reversion Backtester | Sourya Beesabathuni</title>
   <meta name="description" content="A Python backtesting engine for an RSI mean reversion strategy on the S&amp;P 500 — and why a 67% win rate still lost to buy-and-hold.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://souryavb.github.io/projects/sp500-rsi-trader.html">
+  <meta property="og:title" content="S&amp;P 500 RSI Mean Reversion Backtester">
+  <meta property="og:description" content="A Python backtesting engine for an RSI mean reversion strategy on the S&amp;P 500 — and why a 67% win rate still lost to buy-and-hold.">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#f8f5ef">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Martian+Mono:wdth,wght@75..112.5,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-lane="analysis">
+  <a class="skip" href="#main">Skip to content</a>
 
-  <nav class="nav">
-    <div class="container">
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#about">About</a></li>
-      </ul>
-      <a class="brand" href="../index.html">Sourya Beesabathuni</a>
-      <div class="nav-icons">
-        <a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-        </a>
-        <a href="https://github.com/souryavb" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.67.8.55A11.5 11.5 0 0 0 12 .5z"/></svg>
-        </a>
-        <a href="mailto:beesabathuni.s@northeastern.edu" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="project-head">
-    <div class="container">
-      <h1>S&amp;P 500 RSI Mean Reversion Backtester</h1>
-      <div class="where">Personal project, 2026 · Python, pandas, NumPy, FastAPI</div>
-      <p class="lead">
-        I built an engine to test whether buying the S&amp;P 500 at RSI extremes beats just holding it.
-        It won two thirds of its trades and still lost to buy-and-hold by 101 percentage points —
-        which turned out to be the interesting part.
-      </p>
+  <header class="top">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Sourya Beesabathuni</a>
+      <nav class="top-links" aria-label="Site">
+        <a href="../index.html#projects">← All work</a>
+        <a class="top-links__extra" href="mailto:beesabathuni.s@northeastern.edu">Email</a>
+      </nav>
     </div>
   </header>
 
-  <div class="container">
-    <div class="render project-render"><img src="../assets/img/equity-curve.svg" alt="Price chart with RSI oscillator below, showing oversold entries and overbought exits"></div>
+  <main id="main" class="wrap">
+    <article class="doc">
+      <h1>S&amp;P 500 RSI Mean Reversion Backtester</h1>
+      <p class="lede">I built an engine to test whether buying the S&amp;P 500 at RSI extremes beats just holding it. It won two thirds of its trades and still lost to buy-and-hold by 101 percentage points — which turned out to be the interesting part.</p>
 
-    <ul class="figures">
-      <li><strong>+21.2%</strong><span>Strategy return</span></li>
-      <li><strong>+122.3%</strong><span>Buy &amp; hold return</span></li>
-      <li><strong>0.41</strong><span>Sharpe ratio</span></li>
-      <li><strong>−13.5%</strong><span>Max drawdown</span></li>
-    </ul>
-    <p class="caption">^GSPC, 1 Jan 2020 – 27 Sep 2026 · 1,692 trading days loaded, after a 200-day indicator warm-up · $100,000 starting capital</p>
+      <dl class="facts mono">
+        <dt>Where</dt><dd>Personal project</dd>
+        <dt>When</dt><dd>2026</dd>
+        <dt>Lane</dt><dd><span class="dot analysis" aria-hidden="true"></span>Analysis</dd>
+        <dt>Tools</dt><dd>Python, pandas, NumPy, FastAPI</dd>
+      </dl>
 
-    <div class="prose">
-      <h2>The idea</h2>
-      <p>
-        Mean reversion assumes that after a sharp move in one direction, price tends to snap back
-        toward its average. The Relative Strength Index measures how stretched a move is on a 0–100
-        scale, comparing the size of recent gains to recent losses. Readings below 30 are
-        conventionally called oversold, above 70 overbought.
-      </p>
-      <p>
-        The strategy is deliberately simple, because a simple rule is one you can actually diagnose
-        when it fails: go long the index when RSI(14) closes at or below 30, and close the position
-        on whichever of three exits comes first.
-      </p>
-      <ul>
-        <li><strong>Stop loss</strong> — the position is down 5% from entry.</li>
-        <li><strong>Take profit</strong> — the position is up 10% from entry.</li>
-        <li><strong>RSI overbought</strong> — RSI closes at or above 70, so the snap-back has happened.</li>
+      <figure class="plate"><img src="../assets/img/equity-curve.svg" alt="Price chart with RSI oscillator below, showing oversold entries and overbought exits"></figure>
+      <ul class="figures">
+        <li><strong>+21.2%</strong><span>Strategy return</span></li>
+        <li><strong>+122.3%</strong><span>Buy &amp; hold return</span></li>
+        <li><strong>0.41</strong><span>Sharpe ratio</span></li>
+        <li><strong>−13.5%</strong><span>Max drawdown</span></li>
       </ul>
-      <p>
-        Only one position is open at a time, and each entry commits the full cash balance, so the
-        equity curve is a clean record of the rule rather than of a position-sizing scheme layered
-        on top.
-      </p>
+      <p class="caption mono">^GSPC, 1 Jan 2020 – 27 Sep 2026. 1,692 trading days loaded after a 200-day indicator warm-up. $100,000 starting capital.</p>
 
-      <h2>How it works</h2>
-      <p>
-        Daily bars come from Yahoo Finance via <code>yfinance</code>. RSI is computed with an
-        exponentially weighted average of gains and losses rather than a simple rolling mean, which
-        is the smoothing Wilder originally specified and the one most charting platforms use — a
-        detail that shifts the signal dates enough to matter.
-      </p>
-      <div class="file">
-        <div class="file-name">rsi_trader.py <span>RSI with Wilder smoothing</span></div>
-        <div class="file-body">
-<pre>def compute_rsi(series: pd.Series, period: int = 14) -> pd.Series:
+      <div class="prose">
+        <h2>The idea</h2>
+        <p>
+          Mean reversion assumes that after a sharp move in one direction, price tends to snap back
+          toward its average. The Relative Strength Index measures how stretched a move is on a 0–100
+          scale, comparing the size of recent gains to recent losses. Readings below 30 are
+          conventionally called oversold, above 70 overbought.
+        </p>
+        <p>
+          The strategy is deliberately simple, because a simple rule is one you can actually diagnose
+          when it fails: go long the index when RSI(14) closes at or below 30, and close the position
+          on whichever of three exits comes first.
+        </p>
+        <ul>
+          <li><strong>Stop loss</strong> — the position is down 5% from entry.</li>
+          <li><strong>Take profit</strong> — the position is up 10% from entry.</li>
+          <li><strong>RSI overbought</strong> — RSI closes at or above 70, so the snap-back has happened.</li>
+        </ul>
+        <p>
+          Only one position is open at a time, and each entry commits the full cash balance, so the
+          equity curve is a clean record of the rule rather than of a position-sizing scheme layered
+          on top.
+        </p>
+
+        <h2>How it works</h2>
+        <p>
+          Daily bars come from Yahoo Finance via <code>yfinance</code>. RSI is computed with an
+          exponentially weighted average of gains and losses rather than a simple rolling mean, which
+          is the smoothing Wilder originally specified and the one most charting platforms use — a
+          detail that shifts the signal dates enough to matter.
+        </p>
+        <div class="file">
+          <div class="file-name mono">rsi_trader.py <span>RSI with Wilder smoothing</span></div>
+          <div class="file-body">
+  <pre>def compute_rsi(series: pd.Series, period: int = 14) -> pd.Series:
     """Compute Relative Strength Index."""
     delta = series.diff()
     gain = delta.where(delta &gt; 0, 0.0)
@@ -101,104 +94,113 @@
     avg_loss = loss.ewm(com=period - 1, min_periods=period).mean()
     rs = avg_gain / avg_loss
     return 100 - (100 / (1 + rs))</pre>
+          </div>
         </div>
-      </div>
-      <p>
-        The backtest then walks the price series one day at a time, holding cash and shares
-        explicitly rather than working with returns. Walking forward day by day keeps the accounting
-        obvious and makes it hard to accidentally use information the strategy would not have had yet.
-      </p>
+        <p>
+          The backtest then walks the price series one day at a time, holding cash and shares
+          explicitly rather than working with returns. Walking forward day by day keeps the accounting
+          obvious and makes it hard to accidentally use information the strategy would not have had yet.
+        </p>
 
-      <h2>What actually happened</h2>
-      <p>
-        Over six and a half years the strategy turned $100,000 into $121,196. Buy-and-hold turned it
-        into $222,300. The win rate was 66.7%.
-      </p>
-      <p>
-        Those three numbers together are the whole lesson. A strategy can be right about most of its
-        trades and still be a bad strategy, and the win rate is the statistic most likely to hide
-        that from you.
-      </p>
+        <h2>What actually happened</h2>
+        <p>
+          Over six and a half years the strategy turned $100,000 into $121,196. Buy-and-hold turned it
+          into $222,300. The win rate was 66.7%.
+        </p>
+        <p>
+          Those three numbers together are the whole lesson. A strategy can be right about most of its
+          trades and still be a bad strategy, and the win rate is the statistic most likely to hide
+          that from you.
+        </p>
 
-      <div class="file">
-        <div class="file-name">trades <span>every closed position, 2020–2026</span></div>
-        <div class="file-body">
-          <table>
-            <thead>
-              <tr><th>Entry</th><th>Exit</th><th>Entry $</th><th>Exit $</th><th>P&amp;L</th><th>Reason</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>2022-01-21</td><td>2022-03-08</td><td>4,397.94</td><td>4,170.70</td><td class="neg">−5,166.96</td><td>stop_loss</td></tr>
-              <tr><td>2022-09-23</td><td>2022-11-30</td><td>3,693.23</td><td>4,080.11</td><td class="pos">+9,934.13</td><td>take_profit</td></tr>
-              <tr><td>2023-10-03</td><td>2023-11-20</td><td>4,229.45</td><td>4,547.38</td><td class="pos">+7,875.40</td><td>rsi_overbought</td></tr>
-              <tr><td>2025-03-10</td><td>2025-04-04</td><td>5,614.56</td><td>5,074.08</td><td class="neg">−10,843.42</td><td>stop_loss</td></tr>
-              <tr><td>2025-04-07</td><td>2025-04-30</td><td>5,062.25</td><td>5,569.06</td><td class="pos">+10,191.68</td><td>take_profit</td></tr>
-              <tr><td>2026-03-20</td><td>2026-04-16</td><td>6,506.48</td><td>7,041.28</td><td class="pos">+9,205.08</td><td>rsi_overbought</td></tr>
-            </tbody>
-          </table>
+        <div class="file">
+          <div class="file-name mono">trades <span>every closed position, 2020–2026</span></div>
+          <div class="file-body">
+            <table>
+              <thead>
+                <tr><th>Entry</th><th>Exit</th><th>Entry $</th><th>Exit $</th><th>P&amp;L</th><th>Reason</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>2022-01-21</td><td>2022-03-08</td><td>4,397.94</td><td>4,170.70</td><td class="neg">−5,166.96</td><td>stop_loss</td></tr>
+                <tr><td>2022-09-23</td><td>2022-11-30</td><td>3,693.23</td><td>4,080.11</td><td class="pos">+9,934.13</td><td>take_profit</td></tr>
+                <tr><td>2023-10-03</td><td>2023-11-20</td><td>4,229.45</td><td>4,547.38</td><td class="pos">+7,875.40</td><td>rsi_overbought</td></tr>
+                <tr><td>2025-03-10</td><td>2025-04-04</td><td>5,614.56</td><td>5,074.08</td><td class="neg">−10,843.42</td><td>stop_loss</td></tr>
+                <tr><td>2025-04-07</td><td>2025-04-30</td><td>5,062.25</td><td>5,569.06</td><td class="pos">+10,191.68</td><td>take_profit</td></tr>
+                <tr><td>2026-03-20</td><td>2026-04-16</td><td>6,506.48</td><td>7,041.28</td><td class="pos">+9,205.08</td><td>rsi_overbought</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
 
-      <h2>Why it lost</h2>
-      <p>
-        Six trades. Across the whole backtest the rule found six entries — because RSI(14) on a
-        major index rarely closes below 30. It held a position on 171 trading days in total, which
-        means the strategy sat in cash roughly 90% of the time.
-      </p>
-      <p>
-        That's the entire gap. The period from 2020 to 2026 was mostly a rising market, and a rule
-        that is out of the market nine days in ten cannot capture a rising market no matter how well
-        it picks its moments. It wasn't beaten because its trades were bad — four of six made money.
-        It was beaten because it wasn't there.
-      </p>
-      <p>
-        The Sharpe ratio of 0.41 says the same thing more quietly. The one genuine advantage is the
-        drawdown: −13.5% against a considerably deeper decline for holding the index through 2022.
-        If your objective were to limit the worst stretch rather than to maximize return, that would
-        be worth something — but that's a different objective than the one I started with, and
-        deciding that after seeing the results would be cheating.
-      </p>
+        <h2>Why it lost</h2>
+        <p>
+          Six trades. Across the whole backtest the rule found six entries — because RSI(14) on a
+          major index rarely closes below 30. It held a position on 171 trading days in total, which
+          means the strategy sat in cash roughly 90% of the time.
+        </p>
+        <p>
+          That's the entire gap. The period from 2020 to 2026 was mostly a rising market, and a rule
+          that is out of the market nine days in ten cannot capture a rising market no matter how well
+          it picks its moments. It wasn't beaten because its trades were bad — four of six made money.
+          It was beaten because it wasn't there.
+        </p>
+        <p>
+          The Sharpe ratio of 0.41 says the same thing more quietly. The one genuine advantage is the
+          drawdown: −13.5% against a considerably deeper decline for holding the index through 2022.
+          If your objective were to limit the worst stretch rather than to maximize return, that would
+          be worth something — but that's a different objective than the one I started with, and
+          deciding that after seeing the results would be cheating.
+        </p>
 
-      <h2>What I'd fix</h2>
-      <ul>
-        <li>Charge realistic commission and slippage. Fills are assumed at the close, which flatters any strategy — though with six trades it barely moves this one.</li>
-        <li>Stop leaving capital idle. The honest comparison isn't strategy vs. buy-and-hold, it's strategy-plus-cash-yield vs. buy-and-hold, and ignoring the interest on 85% idle cash understates it.</li>
-        <li>Loosen the entry threshold. RSI below 30 is too rare on an index to generate a usable sample; six trades is not enough evidence to conclude anything with confidence, including this.</li>
-        <li>Test across more than one regime. A window dominated by one long recovery cannot tell you how a mean-reversion rule behaves in a sideways market, which is where it should do best.</li>
-      </ul>
+        <h2>What I'd fix</h2>
+        <ul>
+          <li>Charge realistic commission and slippage. Fills are assumed at the close, which flatters any strategy — though with six trades it barely moves this one.</li>
+          <li>Stop leaving capital idle. The honest comparison isn't strategy vs. buy-and-hold, it's strategy-plus-cash-yield vs. buy-and-hold, and ignoring the interest on 85% idle cash understates it.</li>
+          <li>Loosen the entry threshold. RSI below 30 is too rare on an index to generate a usable sample; six trades is not enough evidence to conclude anything with confidence, including this.</li>
+          <li>Test across more than one regime. A window dominated by one long recovery cannot tell you how a mean-reversion rule behaves in a sideways market, which is where it should do best.</li>
+        </ul>
 
-      <h2>The dashboard</h2>
-      <p>
-        Re-running a command and squinting at a terminal gets old when you want to know what a
-        different oversold threshold does. A small FastAPI service wraps the same backtest functions
-        and returns price, RSI, the equity curve, and the trade list as JSON, so parameters can be
-        changed in the browser and the result re-read immediately.
-      </p>
-      <div class="file">
-        <div class="file-name">shell</div>
-        <div class="file-body">
-<pre>$ python rsi_trader.py --start 2020-01-01 --oversold 30 --overbought 70
+        <h2>The dashboard</h2>
+        <p>
+          Re-running a command and squinting at a terminal gets old when you want to know what a
+          different oversold threshold does. A small FastAPI service wraps the same backtest functions
+          and returns price, RSI, the equity curve, and the trade list as JSON, so parameters can be
+          changed in the browser and the result re-read immediately.
+        </p>
+        <div class="file">
+          <div class="file-name mono">shell</div>
+          <div class="file-body">
+  <pre>$ python rsi_trader.py --start 2020-01-01 --oversold 30 --overbought 70
 $ uvicorn server:app --reload --port 8000</pre>
+          </div>
         </div>
+
+        <p class="note">
+          A research exercise, not investment advice. Backtested results are hypothetical and do not
+          account for commissions, slippage, or taxes. Figures above are from a single run over
+          ^GSPC, 1 Jan 2020 – 27 Sep 2026.
+        </p>
       </div>
 
-      <p class="note">
-        A research exercise, not investment advice. Backtested results are hypothetical and do not
-        account for commissions, slippage, or taxes. Figures above are from a single run over
-        ^GSPC, 1 Jan 2020 – 27 Sep 2026.
-      </p>
+      <nav class="pager" aria-label="More projects">
+        <a href="helpdesk-triage.html"><span class="pager__label mono">Previous</span><span class="pager__title">Automated Help Desk Triage</span></a>
+      </nav>
+    </article>
+  </main>
 
-      <div class="pager" style="margin-top:56px">
-        <a href="helpdesk-triage.html">← Automated Help Desk Triage</a>
-        <a href="../index.html#projects">All projects →</a>
+  <footer class="close">
+    <div class="wrap">
+      <p class="close__line">Open to co-op and internship roles.</p>
+      <p class="close__address mono">beesabathuni.s@northeastern.edu</p>
+      <ul class="close__links">
+        <li><a href="mailto:beesabathuni.s@northeastern.edu">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/souryavb" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+      <div class="colophon mono">
+        <span>© <span id="year">2026</span> Sourya Beesabathuni</span>
+        <span>Boston, MA</span>
       </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="container">
-      <span>© <span id="year"></span> Sourya Beesabathuni</span>
-      <span>Boston, MA</span>
     </div>
   </footer>
 

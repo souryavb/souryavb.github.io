@@ -3,108 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- TEMPLATE PAGE. Copy this file for each new project, then replace everything marked TODO. -->
   <title>Second project title | Sourya Beesabathuni</title>
   <meta name="description" content="TODO: one sentence describing this project.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://souryavb.github.io/projects/_template.html">
+  <meta property="og:title" content="Second project title">
+  <meta property="og:description" content="TODO: one sentence describing this project.">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#f8f5ef">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Martian+Mono:wdth,wght@75..112.5,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-lane="infra">
+  <!-- Template for a new project page. Copy this file, then:
+       1. Set data-lane on <body> to "infra" or "analysis".
+       2. Fill in the TODOs, and delete any block you don't have real content for.
+       3. Add the project to a lane on index.html, and fix the Previous / Next links. -->
+  <a class="skip" href="#main">Skip to content</a>
 
-  <nav class="nav">
-    <div class="container">
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#about">About</a></li>
-      </ul>
-      <a class="brand" href="../index.html">Sourya Beesabathuni</a>
-      <div class="nav-icons">
-        <a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-        </a>
-        <a href="https://github.com/souryavb" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.67.8.55A11.5 11.5 0 0 0 12 .5z"/></svg>
-        </a>
-        <a href="mailto:beesabathuni.s@northeastern.edu" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="project-head">
-    <div class="container">
-      <h1>Second project title</h1>
-      <div class="where">TODO: where and when · TODO: tools used</div>
-      <p class="lead">
-        TODO: two sentences. What the thing is, and why it was worth building. Lead with the
-        outcome rather than the process.
-      </p>
+  <header class="top">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Sourya Beesabathuni</a>
+      <nav class="top-links" aria-label="Site">
+        <a href="../index.html#projects">← All work</a>
+        <a class="top-links__extra" href="mailto:beesabathuni.s@northeastern.edu">Email</a>
+      </nav>
     </div>
   </header>
 
-  <div class="container">
-    <div class="render project-render"><img src="../assets/img/placeholder.svg" alt=""></div>
+  <main id="main" class="wrap">
+    <article class="doc">
+      <h1>Second project title</h1>
+      <p class="lede">TODO: two sentences. What the thing is, and why it was worth building. Lead with the outcome rather than the process.</p>
 
-    <!-- Four headline numbers. Delete the whole list if you don't have real ones. -->
-    <ul class="figures">
-      <li><strong>—</strong><span>TODO metric</span></li>
-      <li><strong>—</strong><span>TODO metric</span></li>
-      <li><strong>—</strong><span>TODO metric</span></li>
-      <li><strong>—</strong><span>TODO metric</span></li>
-    </ul>
+      <dl class="facts mono">
+        <dt>Where</dt><dd>TODO: where</dd>
+        <dt>When</dt><dd>TODO: when</dd>
+        <dt>Lane</dt><dd><span class="dot infra" aria-hidden="true"></span>Infrastructure &amp; security</dd>
+        <dt>Tools</dt><dd>TODO: tools used</dd>
+      </dl>
 
-    <div class="prose">
-      <h2>The problem</h2>
-      <p>TODO: what wasn't working, or what question you wanted answered.</p>
-
-      <h2>How it works</h2>
-      <p>TODO: the approach, and one decision you made that a reader wouldn't guess.</p>
-
-      <!-- A code or data snapshot. Delete if not relevant. -->
-      <div class="file">
-        <div class="file-name">filename.py <span>short caption</span></div>
-        <div class="file-body">
-<pre>TODO: a short, interesting excerpt — not the whole file.</pre>
-        </div>
-      </div>
-
-      <h2>Results</h2>
-      <p>TODO: what came out of it, including what didn't work.</p>
-
-      <!-- Images are click-to-zoom automatically inside .gallery. -->
-      <div class="gallery">
-        <figure>
-          <img src="../assets/img/placeholder.svg" alt="TODO">
-          <figcaption>TODO: caption</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/placeholder.svg" alt="TODO">
-          <figcaption>TODO: caption</figcaption>
-        </figure>
-      </div>
-
-      <h2>What I'd do next</h2>
-      <ul>
-        <li>TODO</li>
-        <li>TODO</li>
+      <figure class="plate"><img src="../assets/img/placeholder.svg" alt=""></figure>
+      <!-- Four headline numbers. Delete the whole list if you don't have real ones. -->
+      <ul class="figures">
+        <li><strong>—</strong><span>TODO metric</span></li>
+        <li><strong>—</strong><span>TODO metric</span></li>
+        <li><strong>—</strong><span>TODO metric</span></li>
+        <li><strong>—</strong><span>TODO metric</span></li>
       </ul>
 
-      <div class="pager" style="margin-top:56px">
-        <a href="sp500-rsi-trader.html">← Previous project</a>
-        <a href="../index.html#projects">All projects →</a>
-      </div>
-    </div>
-  </div>
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>TODO: what wasn't working, or what question you wanted answered.</p>
 
-  <footer>
-    <div class="container">
-      <span>© <span id="year"></span> Sourya Beesabathuni</span>
-      <span>Boston, MA</span>
+        <h2>How it works</h2>
+        <p>TODO: the approach, and one decision you made that a reader wouldn't guess.</p>
+
+        <!-- A code or data snapshot. Delete if not relevant. -->
+        <div class="file">
+          <div class="file-name mono">filename.py <span>short caption</span></div>
+          <div class="file-body">
+  <pre>TODO: a short, interesting excerpt — not the whole file.</pre>
+          </div>
+        </div>
+
+        <h2>Results</h2>
+        <p>TODO: what came out of it, including what didn't work.</p>
+
+        <!-- Images are click-to-zoom automatically inside .gallery. -->
+        <div class="gallery">
+          <figure>
+            <img src="../assets/img/placeholder.svg" alt="TODO">
+            <figcaption>TODO: caption</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/placeholder.svg" alt="TODO">
+            <figcaption>TODO: caption</figcaption>
+          </figure>
+        </div>
+
+        <h2>What I'd do next</h2>
+        <ul>
+          <li>TODO</li>
+          <li>TODO</li>
+        </ul>
+      </div>
+
+      <nav class="pager" aria-label="More projects">
+        <a href="sp500-rsi-trader.html"><span class="pager__label mono">Previous</span><span class="pager__title">Previous project</span></a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="close">
+    <div class="wrap">
+      <p class="close__line">Open to co-op and internship roles.</p>
+      <p class="close__address mono">beesabathuni.s@northeastern.edu</p>
+      <ul class="close__links">
+        <li><a href="mailto:beesabathuni.s@northeastern.edu">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/souryavb" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+      <div class="colophon mono">
+        <span>© <span id="year">2026</span> Sourya Beesabathuni</span>
+        <span>Boston, MA</span>
+      </div>
     </div>
   </footer>
 

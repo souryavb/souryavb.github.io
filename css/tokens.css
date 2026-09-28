@@ -1,0 +1,76 @@
+/* Hallmark · design tokens · theme: custom (vibe: "drafting paper, safety orange, plotter green")
+ * axes: light / grotesk-sans / warm + chromatic-green
+ *
+ * Every colour and font in style.css references these. The SVGs in assets/img
+ * are loaded as <img>, so they can't read custom properties; they carry the
+ * hex equivalents noted beside each token.
+ *
+ * Contrast ratios are against --color-paper.
+ */
+:root {
+  /* Surfaces */
+  --color-paper:        oklch(97% 0.008 85);    /* #f8f5ef */
+  --color-paper-2:      oklch(93.5% 0.011 85);  /* #ede9e1  table bands, pressed controls */
+
+  /* Ink */
+  --color-ink:          oklch(19% 0.004 85);    /* #151412  16.9:1 */
+  --color-ink-2:        oklch(38% 0.006 85);    /* #44423f   9.2:1 */
+  --color-muted:        oklch(50% 0.008 85);    /* #65635e   5.5:1  smallest text allowed */
+  --color-rule:         oklch(86% 0.010 85);    /* #d4d1ca   1.4:1  decorative hairlines only */
+  --color-rule-strong:  oklch(78% 0.012 85);    /* #bcb8b0          control borders */
+
+  /* Lanes. The plain values are for marks (dots, lines, rules) and fail as
+   * text; the -ink values are the text-safe versions. Orange always means
+   * infrastructure & security work, green always means analysis work. */
+  --color-infra:        oklch(64% 0.17 48);     /* #db640e   3.3:1  marks only */
+  --color-infra-ink:    oklch(52% 0.15 42);     /* #ac430e   5.4:1 */
+  --color-analysis:     oklch(58% 0.11 158);    /* #358e61   3.7:1  marks only */
+  --color-analysis-ink: oklch(47% 0.10 158);    /* #186b45   5.9:1 */
+
+  --color-focus:        var(--color-infra-ink); /* 5.4:1, above the 3:1 ring minimum */
+
+  /* Type. One variable sans flexed by width for display vs. body, plus a mono
+   * for anything that is data: dates, tools, figures, labels. */
+  --font-sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --stretch-display: 82%;
+  --stretch-body: 100%;
+  --stretch-mono: 87.5%;
+
+  --text-2xs: 0.6875rem;
+  --text-xs:  0.75rem;
+  --text-sm:  0.875rem;
+  --text-md:  1.0625rem;
+  --text-lg:  1.25rem;
+  --text-xl:  1.625rem;
+  --text-2xl: clamp(1.75rem, 1.35rem + 1.6vw, 2.5rem);
+  --text-display: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+
+  --leading-tight: 1.04;
+  --leading-body: 1.62;
+  --measure: 64ch;
+  --max: 76rem;
+
+  /* Space, 4-point scale */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 7rem;
+
+  /* Lines and corners. One radius, controls only. */
+  --rule-hair: 1px;
+  --rule-mark: 2px;
+  --radius-control: 3px;
+
+  /* Motion */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-short: 150ms;
+  --dur-draw:  600ms;
+}

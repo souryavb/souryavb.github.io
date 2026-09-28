@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Price chart with RSI oscillator below, showing oversold buy signals and overbought sell signals">
   <style>
-    .grid  { stroke: #e6e7e9; stroke-width: 1.5; }
-    .band  { stroke: #c9ccd1; stroke-width: 1.5; stroke-dasharray: 6 6; }
-    .line  { fill: none; stroke: #1b3a4b; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
-    .rsi   { fill: none; stroke: #5a5f66; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
-    .buy   { fill: #2f7d64; }
-    .sell  { fill: #9c4a3c; }
-    .label { fill: #5a5f66; font: 600 20px Archivo, system-ui, sans-serif; }
-    .title { fill: #0b0c0e; font: 800 24px Archivo, system-ui, sans-serif; letter-spacing: -0.02em; }
+    .grid  { stroke: #d4d1ca; stroke-width: 1.5; }
+    .band  { stroke: #bcb8b0; stroke-width: 1.5; stroke-dasharray: 6 6; }
+    .line  { fill: none; stroke: #186b45; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
+    .rsi   { fill: none; stroke: #65635e; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .buy   { fill: #358e61; }
+    .sell  { fill: #151412; }
+    .label { fill: #65635e; font: 600 20px 'Instrument Sans', system-ui, sans-serif; }
+    .title { fill: #151412; font: 800 24px 'Instrument Sans', system-ui, sans-serif; letter-spacing: -0.02em; }
   </style>
 
   <rect width="800" height="800" fill="none"/>

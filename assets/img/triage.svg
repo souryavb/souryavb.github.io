@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Diagram: an inbox of messages sorted automatically into a priority folder and a standard queue">
   <style>
-    .row   { fill: #f3f4f6; }
-    .hi    { fill: #1b3a4b; }
-    .bar   { fill: #c9ccd1; }
-    .barw  { fill: #7e94a0; }
-    .box   { fill: none; stroke: #c9ccd1; stroke-width: 2.5; }
-    .flag  { fill: #9c4a3c; }
-    .t     { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 19px; font-weight: 600; }
-    .lab   { fill: #5a5f66; font-family: Archivo, system-ui, sans-serif; font-size: 17px; }
-    .title { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
-    .arrow { stroke: #5a5f66; stroke-width: 2.5; fill: none; marker-end: url(#b); }
+    .row   { fill: #ede9e1; }
+    .hi    { fill: #ac430e; }
+    .bar   { fill: #bcb8b0; }
+    .barw  { fill: #e2a47c; }
+    .box   { fill: none; stroke: #bcb8b0; stroke-width: 2.5; }
+    .flag  { fill: #db640e; }
+    .t     { fill: #151412; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 19px; font-weight: 600; }
+    .lab   { fill: #65635e; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 17px; }
+    .title { fill: #151412; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+    .arrow { stroke: #65635e; stroke-width: 2.5; fill: none; marker-end: url(#b); }
   </style>
   <defs>
     <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#5a5f66"/>
+      <path d="M0 0 L10 5 L0 10 z" fill="#65635e"/>
     </marker>
   </defs>
 

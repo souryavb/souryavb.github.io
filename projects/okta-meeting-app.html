@@ -5,128 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Okta Meeting Automation App | Sourya Beesabathuni</title>
   <meta name="description" content="An internal application on Kubernetes that automated morning meeting logistics firmwide at Bain Capital, integrating Workday, Slack, and ServiceNow.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://souryavb.github.io/projects/okta-meeting-app.html">
+  <meta property="og:title" content="Okta Meeting Automation App">
+  <meta property="og:description" content="An internal application on Kubernetes that automated morning meeting logistics firmwide at Bain Capital, integrating Workday, Slack, and ServiceNow.">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#f8f5ef">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Martian+Mono:wdth,wght@75..112.5,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-lane="infra">
+  <a class="skip" href="#main">Skip to content</a>
 
-  <nav class="nav">
-    <div class="container">
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#about">About</a></li>
-      </ul>
-      <a class="brand" href="../index.html">Sourya Beesabathuni</a>
-      <div class="nav-icons">
-        <a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-        </a>
-        <a href="https://github.com/souryavb" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.67.8.55A11.5 11.5 0 0 0 12 .5z"/></svg>
-        </a>
-        <a href="mailto:beesabathuni.s@northeastern.edu" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="project-head">
-    <div class="container">
-      <h1>Okta Meeting Automation App</h1>
-      <div class="where">Bain Capital, January – June 2026 · Python, Kubernetes, Okta, Workday API, Slack API, ServiceNow API</div>
-      <p class="lead">
-        Every morning, people across the firm were assembling the same meeting by hand. I built an
-        internal application that assembles it for them, and shipped it firmwide.
-      </p>
+  <header class="top">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Sourya Beesabathuni</a>
+      <nav class="top-links" aria-label="Site">
+        <a href="../index.html#projects">← All work</a>
+        <a class="top-links__extra" href="mailto:beesabathuni.s@northeastern.edu">Email</a>
+      </nav>
     </div>
   </header>
 
-  <div class="container">
-    <div class="render project-render"><img src="../assets/img/workflow.svg" alt="Diagram: Workday and ServiceNow feed an app on Kubernetes, which posts to Slack and an Okta tile"></div>
+  <main id="main" class="wrap">
+    <article class="doc">
+      <h1>Okta Meeting Automation App</h1>
+      <p class="lede">Every morning, people across the firm were assembling the same meeting by hand. I built an internal application that assembles it for them, and shipped it firmwide.</p>
 
-    <div class="prose">
-      <h2>The problem</h2>
-      <p>
-        The morning meeting is a fixed ritual, and the work of preparing it was too: check who's
-        scheduled, check what's open, assemble it, post it. None of those steps are difficult. All
-        of them are manual, they happen before anyone has had coffee, and every one of them is a
-        place for the day to start with stale information.
-      </p>
-      <p>
-        The work already lived in systems that could answer these questions directly. Nobody had
-        connected them, so people were the integration layer.
-      </p>
+      <dl class="facts mono">
+        <dt>Where</dt><dd>Bain Capital</dd>
+        <dt>When</dt><dd>January – June 2026</dd>
+        <dt>Lane</dt><dd><span class="dot infra" aria-hidden="true"></span>Infrastructure &amp; security</dd>
+        <dt>Tools</dt><dd>Python, Kubernetes, Okta, Workday API, Slack API, ServiceNow API</dd>
+      </dl>
 
-      <h2>How it works</h2>
-      <p>
-        The application runs on Kubernetes and pulls from the systems of record rather than keeping
-        its own copy of anything:
-      </p>
-      <ul>
-        <li><strong>Workday</strong> supplies schedules, so the meeting reflects who is actually in and available.</li>
-        <li><strong>ServiceNow</strong> supplies live ticket and status data, which is what turned this from a calendar reminder into something useful — the meeting now opens with a real picture of what's outstanding.</li>
-        <li><strong>Slack</strong> is where it lands, posted automatically and updated in real time rather than assembled once and immediately going stale.</li>
-      </ul>
-      <p>
-        Access is through an Okta tile, which mattered more than it sounds. Putting it behind the
-        same tile as everything else meant there was no new tool to learn, no new credential, and no
-        separate place to remember to check — the single biggest predictor of whether an internal
-        tool actually gets used.
-      </p>
+      <figure class="plate"><img src="../assets/img/workflow.svg" alt="Diagram: Workday and ServiceNow feed an app on Kubernetes, which posts to Slack and an Okta tile"></figure>
 
-      <h2>A single source of truth</h2>
-      <p>
-        The ServiceNow integration was the part with the most leverage. Before, ticket state was
-        re-entered by hand into the meeting, which meant the meeting's version and the system's
-        version drifted apart over the course of a day — and people made calls based on whichever
-        one was in front of them.
-      </p>
-      <p>
-        Syncing in real time removed the manual entry, but the real gain was that System
-        Administration and the security team stopped reconciling two accounts of the same facts.
-      </p>
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>
+          The morning meeting is a fixed ritual, and the work of preparing it was too: check who's
+          scheduled, check what's open, assemble it, post it. None of those steps are difficult. All
+          of them are manual, they happen before anyone has had coffee, and every one of them is a
+          place for the day to start with stale information.
+        </p>
+        <p>
+          The work already lived in systems that could answer these questions directly. Nobody had
+          connected them, so people were the integration layer.
+        </p>
 
-      <h2>Getting it deployed</h2>
-      <p>
-        Building it was the first half. The second half was internal approval — a tool that touches
-        employee schedules and ticket data at a financial firm doesn't ship because it works. It
-        ships once the people responsible for that data understand exactly what it reads, what it
-        writes, and who can see the result.
-      </p>
-      <p>
-        It was approved and rolled out firmwide, with every employee granted access to the tile.
-        That review process taught me more about shipping software inside a regulated environment
-        than the implementation did.
-      </p>
+        <h2>How it works</h2>
+        <p>
+          The application runs on Kubernetes and pulls from the systems of record rather than keeping
+          its own copy of anything:
+        </p>
+        <ul>
+          <li><strong>Workday</strong> supplies schedules, so the meeting reflects who is actually in and available.</li>
+          <li><strong>ServiceNow</strong> supplies live ticket and status data, which is what turned this from a calendar reminder into something useful — the meeting now opens with a real picture of what's outstanding.</li>
+          <li><strong>Slack</strong> is where it lands, posted automatically and updated in real time rather than assembled once and immediately going stale.</li>
+        </ul>
+        <p>
+          Access is through an Okta tile, which mattered more than it sounds. Putting it behind the
+          same tile as everything else meant there was no new tool to learn, no new credential, and no
+          separate place to remember to check — the single biggest predictor of whether an internal
+          tool actually gets used.
+        </p>
 
-      <h2>What I took from it</h2>
-      <ul>
-        <li>The hard part of internal tooling is rarely the code. It's understanding the existing workflow well enough that people trust the replacement.</li>
-        <li>Meeting users where they already are — an existing tile, an existing Slack channel — beats building somewhere new and asking people to come to it.</li>
-        <li>Reading from systems of record instead of copying them is what keeps a tool honest as it ages.</li>
-      </ul>
+        <h2>A single source of truth</h2>
+        <p>
+          The ServiceNow integration was the part with the most leverage. Before, ticket state was
+          re-entered by hand into the meeting, which meant the meeting's version and the system's
+          version drifted apart over the course of a day — and people made calls based on whichever
+          one was in front of them.
+        </p>
+        <p>
+          Syncing in real time removed the manual entry, but the real gain was that System
+          Administration and the security team stopped reconciling two accounts of the same facts.
+        </p>
 
-      <p class="note">
-        Described at a high level: this is internal Bain Capital tooling, so the architecture here
-        is deliberately general and no code or firm data is included.
-      </p>
+        <h2>Getting it deployed</h2>
+        <p>
+          Building it was the first half. The second half was internal approval — a tool that touches
+          employee schedules and ticket data at a financial firm doesn't ship because it works. It
+          ships once the people responsible for that data understand exactly what it reads, what it
+          writes, and who can see the result.
+        </p>
+        <p>
+          It was approved and rolled out firmwide, with every employee granted access to the tile.
+          That review process taught me more about shipping software inside a regulated environment
+          than the implementation did.
+        </p>
 
-      <div class="pager" style="margin-top:56px">
-        <a href="../index.html#projects">← All projects</a>
-        <a href="flight-delay-prediction.html">Predicting Flight Delays →</a>
+        <h2>What I took from it</h2>
+        <ul>
+          <li>The hard part of internal tooling is rarely the code. It's understanding the existing workflow well enough that people trust the replacement.</li>
+          <li>Meeting users where they already are — an existing tile, an existing Slack channel — beats building somewhere new and asking people to come to it.</li>
+          <li>Reading from systems of record instead of copying them is what keeps a tool honest as it ages.</li>
+        </ul>
+
+        <p class="note">
+          Described at a high level: this is internal Bain Capital tooling, so the architecture here
+          is deliberately general and no code or firm data is included.
+        </p>
       </div>
-    </div>
-  </div>
 
-  <footer>
-    <div class="container">
-      <span>© <span id="year"></span> Sourya Beesabathuni</span>
-      <span>Boston, MA</span>
+      <nav class="pager" aria-label="More projects">
+        <a class="pager__next" href="flight-delay-prediction.html"><span class="pager__label mono">Next</span><span class="pager__title">Predicting Flight Delays</span></a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="close">
+    <div class="wrap">
+      <p class="close__line">Open to co-op and internship roles.</p>
+      <p class="close__address mono">beesabathuni.s@northeastern.edu</p>
+      <ul class="close__links">
+        <li><a href="mailto:beesabathuni.s@northeastern.edu">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/souryavb" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+      <div class="colophon mono">
+        <span>© <span id="year">2026</span> Sourya Beesabathuni</span>
+        <span>Boston, MA</span>
+      </div>
     </div>
   </footer>
 

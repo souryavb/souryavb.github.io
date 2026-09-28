@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Scatter plot of flight departure delays against scheduled hour, with a fitted regression line">
   <style>
-    .axis  { stroke: #0b0c0e; stroke-width: 2.5; }
-    .grid  { stroke: #e6e7e9; stroke-width: 1.5; }
-    .dot   { fill: #5a5f66; opacity: .55; }
-    .fit   { stroke: #1b3a4b; stroke-width: 4; stroke-linecap: round; }
-    .label { fill: #5a5f66; font-family: Archivo, system-ui, sans-serif; font-size: 20px; font-weight: 600; }
-    .title { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
-    .stat  { fill: #1b3a4b; font-family: Archivo, system-ui, sans-serif; font-size: 22px; font-weight: 700; }
+    .axis  { stroke: #151412; stroke-width: 2.5; }
+    .grid  { stroke: #d4d1ca; stroke-width: 1.5; }
+    .dot   { fill: #65635e; opacity: .55; }
+    .fit   { stroke: #186b45; stroke-width: 4; stroke-linecap: round; }
+    .label { fill: #65635e; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 20px; font-weight: 600; }
+    .title { fill: #151412; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+    .stat  { fill: #186b45; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 22px; font-weight: 700; }
   </style>
 
   <text class="title" x="80" y="48">Departure delay vs. scheduled hour</text>

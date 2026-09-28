@@ -6,3 +6,5 @@ Thumbs.db
 .claude/
 # ~107 files / 948KB. Reinstall from skills-lock.json with: npx skills install
 .agents/
+# Hallmark's run log, only used by the design tool. design.md is the real record.
+.hallmark/
