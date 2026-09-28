@@ -151,6 +151,10 @@ h3 { font-size: 1.6rem; }
 .prose ul { padding-left: 1.2em; }
 .prose li { margin-bottom: .5em; }
 .prose .tools { color: var(--graphite); font-size: .95rem; }
+.prose code {
+  font-family: var(--mono); font-size: .88em;
+  background: var(--fog); padding: 1px 6px; border-radius: 5px;
+}
 
 .caption { color: var(--graphite); font-size: .9rem; text-align: center; margin-top: 12px; }
 
