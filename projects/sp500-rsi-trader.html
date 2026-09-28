@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S&amp;P 500 RSI Mean Reversion Backtester | Sourya Beesabathuni</title>
+  <meta name="description" content="A Python backtesting engine for an RSI mean reversion strategy on the S&amp;P 500, with a FastAPI dashboard.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#about">About</a></li>
+      </ul>
+      <a class="brand" href="../index.html">Sourya Beesabathuni</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/TODO-LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="https://github.com/souryavb" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.67.8.55A11.5 11.5 0 0 0 12 .5z"/></svg>
+        </a>
+        <a href="mailto:beesabathuni.s@northeastern.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="project-head">
+    <div class="container">
+      <h1>S&amp;P 500 RSI Mean Reversion Backtester</h1>
+      <div class="where">Personal project, 2026 · Python, pandas, NumPy, FastAPI</div>
+      <p class="lead">
+        A backtesting engine that buys the S&amp;P 500 when RSI signals oversold and exits on a stop,
+        a profit target, or an overbought reading — then scores the result honestly against
+        buy-and-hold.
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="render project-render"><img src="../assets/img/equity-curve.svg" alt="Price chart with RSI oscillator below, showing oversold entries and overbought exits"></div>
+
+    <!-- TODO-FIGURES: run the backtest and paste the real numbers here.
+         From the repo root:  python rsi_trader.py --start 2020-01-01
+         The summary it prints has every number below. Do not ship the placeholders. -->
+    <ul class="figures">
+      <li><strong>—%</strong><span>Strategy return</span></li>
+      <li><strong>—%</strong><span>Buy &amp; hold return</span></li>
+      <li><strong>—</strong><span>Sharpe ratio</span></li>
+      <li><strong>—%</strong><span>Max drawdown</span></li>
+    </ul>
+
+    <div class="prose">
+      <h2>The idea</h2>
+      <p>
+        Mean reversion assumes that after a sharp move in one direction, price tends to snap back
+        toward its average. The Relative Strength Index is a standard way to measure how stretched
+        a move is: it compares the size of recent gains to recent losses on a 0–100 scale. Readings
+        below 30 are conventionally called oversold, above 70 overbought.
+      </p>
+      <p>
+        The strategy is deliberately simple, because a simple rule is one you can actually diagnose
+        when it fails: go long the index when RSI(14) closes at or below 30, and close the position
+        on whichever of three exits comes first.
+      </p>
+      <ul>
+        <li><strong>Stop loss</strong> — the position is down 5% from entry.</li>
+        <li><strong>Take profit</strong> — the position is up 10% from entry.</li>
+        <li><strong>RSI overbought</strong> — RSI closes at or above 70, so the snap-back has happened.</li>
+      </ul>
+      <p>
+        Only one position is open at a time, and each entry commits the full cash balance, so the
+        equity curve is a clean record of the rule rather than of a position-sizing scheme layered on top.
+      </p>
+
+      <h2>How it works</h2>
+      <p>
+        Daily bars come from Yahoo Finance via <code>yfinance</code>. RSI is computed with an
+        exponentially weighted average of gains and losses rather than a simple rolling mean, which is
+        the smoothing Wilder originally specified and the one most charting platforms use — a detail
+        that changes the signal dates enough to matter.
+      </p>
+      <p>
+        The backtest then walks the price series one day at a time, holding cash and shares explicitly
+        rather than working with returns. Walking forward day by day keeps the accounting obvious and
+        makes it hard to accidentally use information the strategy would not have had yet.
+      </p>
+
+      <div class="file">
+        <div class="file-name">rsi_trader.py <span>RSI with Wilder smoothing</span></div>
+        <div class="file-body">
+<pre>def compute_rsi(series: pd.Series, period: int = 14) -> pd.Series:
+    """Compute Relative Strength Index."""
+    delta = series.diff()
+    gain = delta.where(delta &gt; 0, 0.0)
+    loss = -delta.where(delta &lt; 0, 0.0)
+    avg_gain = gain.ewm(com=period - 1, min_periods=period).mean()
+    avg_loss = loss.ewm(com=period - 1, min_periods=period).mean()
+    rs = avg_gain / avg_loss
+    return 100 - (100 / (1 + rs))</pre>
+        </div>
+      </div>
+
+      <h2>Scoring it honestly</h2>
+      <p>
+        A total return figure on its own is close to meaningless — a strategy that sits in cash for
+        most of a bull market can post a positive number and still be a bad idea. So every run reports
+        four things next to each other:
+      </p>
+      <ul>
+        <li><strong>Return vs. buy-and-hold</strong>, because beating zero is not the bar. Beating the index is.</li>
+        <li><strong>Sharpe ratio</strong>, annualized from daily returns, for return per unit of volatility.</li>
+        <li><strong>Maximum drawdown</strong>, computed from the running peak of portfolio value — the worst stretch you would have had to sit through.</li>
+        <li><strong>Win rate and trade count</strong>, which separate a real edge from a handful of lucky trades.</li>
+      </ul>
+      <p>
+        Every closed trade is also recorded individually with its entry, exit, P&amp;L, and the reason it
+        closed. Grouping by exit reason is the most useful diagnostic in the whole project: a strategy
+        whose gains all come from <code>take_profit</code> and whose losses all come from
+        <code>stop_loss</code> is behaving as designed, and one where <code>end_of_data</code> dominates
+        is really just holding the index with extra steps.
+      </p>
+
+      <!-- TODO-TRADES: replace these rows with real ones from a run, or delete this block.
+           The backtest already emits every field shown here. -->
+      <div class="file">
+        <div class="file-name">trades <span>sample of closed positions</span></div>
+        <div class="file-body">
+          <table>
+            <thead>
+              <tr><th>Entry</th><th>Exit</th><th>Entry px</th><th>Exit px</th><th>P&amp;L</th><th>Reason</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>—</td><td>—</td><td>—</td><td>—</td><td class="pos">—</td><td>take_profit</td></tr>
+              <tr><td>—</td><td>—</td><td>—</td><td>—</td><td class="neg">—</td><td>stop_loss</td></tr>
+              <tr><td>—</td><td>—</td><td>—</td><td>—</td><td class="pos">—</td><td>rsi_overbought</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2>The dashboard</h2>
+      <p>
+        Re-running a command and squinting at a terminal gets old quickly when you want to know what a
+        different oversold threshold does. A small FastAPI service wraps the same backtest functions and
+        returns price, RSI, the equity curve, and the trade list as JSON, so parameters can be changed in
+        the browser and the result re-read immediately.
+      </p>
+      <div class="file">
+        <div class="file-name">shell</div>
+        <div class="file-body">
+<pre>$ python rsi_trader.py --start 2020-01-01 --oversold 30 --overbought 70
+$ uvicorn server:app --reload --port 8000</pre>
+        </div>
+      </div>
+
+      <h2>What I'd do next</h2>
+      <ul>
+        <li>Charge realistic commission and slippage per trade. Right now fills are assumed at the close, which flatters any strategy that trades often.</li>
+        <li>Walk-forward the thresholds instead of fixing them at 30/70, so the parameters aren't quietly fit to the same window they're scored on.</li>
+        <li>Test across more than one regime. A window starting in 2020 is dominated by one recovery, and that is not enough evidence for anything.</li>
+      </ul>
+
+      <p class="note">
+        This is a research exercise, not investment advice. Backtested results are hypothetical and
+        do not account for commissions, slippage, or taxes.
+      </p>
+
+      <div class="pill-stack">
+        <!-- TODO-REPO: push sp500_rsi_trader to GitHub and point this at it, or delete the button. -->
+        <a class="pill" href="https://github.com/souryavb/sp500_rsi_trader" target="_blank" rel="noopener">View the code</a>
+      </div>
+
+      <div class="pager" style="margin-top:56px">
+        <a href="../index.html#projects">← All projects</a>
+        <a href="project-two.html">Next project →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Sourya Beesabathuni</span>
+      <span>Boston, MA</span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
