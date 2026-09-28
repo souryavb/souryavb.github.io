@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Diagram: Workday and ServiceNow feed an app running on Kubernetes, which posts to Slack and an Okta tile">
+  <style>
+    .box   { fill: #ffffff; stroke: #c9ccd1; stroke-width: 2.5; }
+    .core  { fill: #1b3a4b; stroke: none; }
+    .arrow { stroke: #5a5f66; stroke-width: 2.5; fill: none; marker-end: url(#a); }
+    .t     { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 20px; font-weight: 600; text-anchor: middle; }
+    .tw    { fill: #ffffff; font-family: Archivo, system-ui, sans-serif; font-weight: 700; text-anchor: middle; }
+    .sub   { fill: #c9d3d9; font-family: Archivo, system-ui, sans-serif; font-size: 17px; text-anchor: middle; }
+    .title { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5a5f66"/>
+    </marker>
+  </defs>
+
+  <text class="title" x="60" y="46">Morning meeting automation</text>
+
+  <!-- Sources -->
+  <rect class="box" x="60"  y="110" width="180" height="76" rx="14"/>
+  <text class="t"   x="150" y="156">Workday API</text>
+  <rect class="box" x="60"  y="262" width="180" height="76" rx="14"/>
+  <text class="t"   x="150" y="308">ServiceNow API</text>
+
+  <!-- Core service -->
+  <rect class="core" x="310" y="170" width="180" height="120" rx="16"/>
+  <text class="tw"   x="400" y="222" font-size="21">Meeting app</text>
+  <text class="sub"  x="400" y="250">Python · Kubernetes</text>
+
+  <!-- Outputs -->
+  <rect class="box" x="560" y="110" width="180" height="76" rx="14"/>
+  <text class="t"   x="650" y="156">Slack API</text>
+  <rect class="box" x="560" y="262" width="180" height="76" rx="14"/>
+  <text class="t"   x="650" y="308">Okta tile</text>
+
+  <g class="arrow">
+    <path d="M240 148 H278 Q290 148 290 168 V200 H306"/>
+    <path d="M240 300 H278 Q290 300 290 280 V262 H306"/>
+    <path d="M494 200 H510 Q522 200 522 180 V148 H556"/>
+    <path d="M494 262 H510 Q522 262 522 282 V300 H556"/>
+  </g>
+
+  <!-- Reach -->
+  <rect class="box" x="230" y="430" width="340" height="80" rx="16"/>
+  <text class="t"   x="400" y="465">Firmwide rollout</text>
+  <text class="t"   x="400" y="492" font-size="17" fill="#5a5f66">every employee, every morning</text>
+  <path class="arrow" d="M400 294 V426"/>
+</svg>

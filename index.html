@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sourya Beesabathuni | Data Science &amp; Finance Portfolio</title>
-  <meta name="description" content="Portfolio of Sourya Beesabathuni, Data Science and Business (Finance) student at Northeastern University.">
+  <title>Sourya Beesabathuni | Data Science &amp; Business</title>
+  <meta name="description" content="Portfolio of Sourya Beesabathuni, Data Science and Business Administration student at Northeastern University and former IT Service Management co-op at Bain Capital.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -17,12 +17,12 @@
       <ul class="nav-links">
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#about">About</a></li>
       </ul>
       <a class="brand" href="index.html">Sourya Beesabathuni</a>
       <div class="nav-icons">
-        <!-- TODO: paste your LinkedIn URL here and in every other place marked TODO-LINKEDIN -->
-        <a href="https://www.linkedin.com/in/TODO-LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
         </a>
         <a href="https://github.com/souryavb" target="_blank" rel="noopener" aria-label="GitHub">
@@ -37,22 +37,20 @@
 
   <header class="hero">
     <div class="container">
-      <!-- TODO-PHOTO: to use a headshot instead of the chart, replace this whole
-           <div class="render"> block with:
+      <!-- To use a headshot instead of the chart, replace this <div class="render"> block with:
            <img class="hero-photo" src="assets/img/headshot.jpg" alt="Sourya Beesabathuni"> -->
-      <div class="render"><img src="assets/img/equity-curve.svg" alt="Price chart with an RSI oscillator marking oversold entries and overbought exits"></div>
+      <div class="render"><img src="assets/img/regression.svg" alt="Scatter plot of flight departure delays against scheduled hour with a fitted regression line"></div>
       <div class="hero-text">
-        <h1>I'm Sourya Beesabathuni, a data science &amp; finance student.</h1>
+        <h1>I'm Sourya Beesabathuni, a data science &amp; business student.</h1>
         <p>
-          <!-- TODO-BIO: one or two sentences. What you study, what you're working on now,
-               and what you want to do next. -->
-          I study Data Science and Business with a concentration in Finance at Northeastern
-          University, graduating in 2028. I build tools that turn market data into decisions
-          I can actually test, and I'm most interested in quantitative research and systematic trading.
+          I'm at Northeastern's Khoury College studying Data Science and Business Administration,
+          graduating in May 2028. I just finished a co-op on Bain Capital's IT Service Management
+          team, and before that I worked cybersecurity for the Connecticut Judicial Branch. I like
+          the problems where a manual process is quietly costing people an hour a day.
         </p>
         <div class="pill-stack">
           <a class="pill" href="#projects">Projects</a>
-          <a class="pill ghost" href="https://www.linkedin.com/in/TODO-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill ghost" href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener">LinkedIn</a>
           <a class="pill ghost" href="mailto:beesabathuni.s@northeastern.edu">Email me</a>
         </div>
       </div>
@@ -63,33 +61,94 @@
     <div class="container">
       <h2>Projects</h2>
       <div class="tiles">
-        <!-- To add a project: copy one <article class="tile"> block below and point it
-             at a new page in /projects (duplicate an existing project page as a starting point). -->
+        <!-- To add a project: copy an <article class="tile"> block and point it at a new page
+             in /projects. Start from projects/_template.html. -->
         <article class="tile">
-          <a href="projects/sp500-rsi-trader.html"><div class="render"><img src="assets/img/equity-curve.svg" alt="RSI mean reversion signals plotted against the S&amp;P 500"></div></a>
-          <h3><a href="projects/sp500-rsi-trader.html">S&amp;P 500 RSI Mean Reversion Backtester.</a></h3>
+          <a href="projects/okta-meeting-app.html"><div class="render"><img src="assets/img/workflow.svg" alt="Diagram of the meeting app pulling from Workday and ServiceNow and posting to Slack"></div></a>
+          <h3><a href="projects/okta-meeting-app.html">Okta Meeting Automation App.</a></h3>
+          <div class="where">Bain Capital, 2026</div>
+          <p>An internal app on Kubernetes that pulls schedules from Workday, syncs ticket state from
+            ServiceNow, and posts the morning meeting to Slack. Rolled out firmwide.</p>
+          <ul class="tags">
+            <li>Python</li><li>Kubernetes</li><li>Okta</li><li>Slack API</li><li>Workday API</li>
+          </ul>
+          <a class="pill" href="projects/okta-meeting-app.html">Learn more</a>
+        </article>
+
+        <article class="tile">
+          <a href="projects/flight-delay-prediction.html"><div class="render"><img src="assets/img/regression.svg" alt="Regression scatter plot of departure delay against scheduled hour"></div></a>
+          <h3><a href="projects/flight-delay-prediction.html">Predicting Flight Delays.</a></h3>
+          <div class="where">Course project, 2025</div>
+          <p>An end-to-end ML pipeline for departure delays at five major U.S. airports, with linear
+            regression implemented from scratch in NumPy and the model's own limits diagnosed honestly.</p>
+          <ul class="tags">
+            <li>Python</li><li>NumPy</li><li>pandas</li><li>scikit-learn</li><li>Seaborn</li>
+          </ul>
+          <a class="pill" href="projects/flight-delay-prediction.html">Learn more</a>
+        </article>
+
+        <article class="tile">
+          <a href="projects/helpdesk-triage.html"><div class="render"><img src="assets/img/triage.svg" alt="Diagram of an inbox sorted into a priority folder and a standard queue"></div></a>
+          <h3><a href="projects/helpdesk-triage.html">Automated Help Desk Triage.</a></h3>
+          <div class="where">Connecticut Judicial Branch, 2025</div>
+          <p>A VBA and Power Automate workflow that flags and routes help desk email by keyword and
+            sender, so urgent security requests stop waiting behind routine ones.</p>
+          <ul class="tags">
+            <li>VBA</li><li>Power Automate</li><li>Outlook</li>
+          </ul>
+          <a class="pill" href="projects/helpdesk-triage.html">Learn more</a>
+        </article>
+
+        <article class="tile">
+          <a href="projects/sp500-rsi-trader.html"><div class="render"><img src="assets/img/equity-curve.svg" alt="Price chart with an RSI oscillator marking oversold entries and overbought exits"></div></a>
+          <h3><a href="projects/sp500-rsi-trader.html">S&amp;P 500 RSI Backtester.</a></h3>
           <div class="where">Personal project, 2026</div>
-          <p>A Python backtesting engine that trades RSI extremes on the S&amp;P 500, reports Sharpe,
-            drawdown and win rate against buy-and-hold, and serves the results through a FastAPI dashboard.</p>
+          <p>A backtesting engine that trades RSI extremes on the S&amp;P 500 and scores the result
+            against buy-and-hold, served through a FastAPI dashboard.</p>
           <ul class="tags">
             <li>Python</li><li>pandas</li><li>NumPy</li><li>FastAPI</li><li>yfinance</li>
           </ul>
           <a class="pill" href="projects/sp500-rsi-trader.html">Learn more</a>
         </article>
-
-        <!-- TODO-PROJECT-2: replace this whole tile with a real second project, or delete it. -->
-        <article class="tile">
-          <a href="projects/project-two.html"><div class="render"><img src="assets/img/placeholder.svg" alt=""></div></a>
-          <h3><a href="projects/project-two.html">Second project title.</a></h3>
-          <div class="where">Course or club, year</div>
-          <p>One or two sentences on what you built, what it does, and the most concrete result you can
-            point to — a number, a decision it changed, or something it made possible.</p>
-          <ul class="tags">
-            <li>Tool</li><li>Tool</li><li>Tool</li>
-          </ul>
-          <a class="pill" href="projects/project-two.html">Learn more</a>
-        </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <ul class="timeline">
+        <li>
+          <div class="role">Information Technology Service Management Co-op</div>
+          <div class="where">Bain Capital · Boston, MA · January – June 2026</div>
+          <p>
+            Worked ServiceNow tickets for end users across the firm's finance applications and
+            coordinated with third-party vendors on cross-platform issues. Built dashboards that
+            surfaced operational data for the System Administration team, monitored for security
+            risks against the compliance standards a financial firm is held to, and used Azure to
+            track IT spend and software license distribution across the organization.
+          </p>
+        </li>
+        <li>
+          <div class="role">Cybersecurity Information Technology Intern</div>
+          <div class="where">Connecticut Judicial Branch · East Hartford, CT · June – August 2025</div>
+          <p>
+            Supported day-to-day security operations using Azure, Power BI, and Power Automate to
+            harden cloud applications and automate reporting. Triaged email traffic across multiple
+            department mailboxes, catching phishing and malware attempts against sensitive judicial
+            data, and used Azure Advisor to find cost and performance optimizations.
+          </p>
+        </li>
+        <li>
+          <div class="role">Tutor</div>
+          <div class="where">Kumon North America · Vernon, CT · January – August 2024</div>
+          <p>
+            Built personalized study plans and taught math and reading one-on-one. Created a
+            standardized system for logging student progress and session notes so tutors could hand
+            off between sessions without losing context.
+          </p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -97,30 +156,37 @@
     <div class="container about">
       <div>
         <h2>About me</h2>
-        <!-- TODO-ABOUT: two short paragraphs. The first says what you study and what draws you to it.
-             The second is the one that makes you memorable — a specific experience and what it taught you. -->
         <p>
-          I'm a Data Science and Business student at Northeastern University, concentrating in Finance
-          and graduating in 2028. I care about the part of finance where a claim can be checked: if a
-          strategy is supposed to work, the data should be able to say so.
+          I'm a Data Science and Business Administration student at Northeastern's Khoury College,
+          graduating in May 2028. The two halves of that degree pull in useful directions: the data
+          science side teaches me to check whether something is true, and the business side keeps me
+          asking whether it matters to anyone.
         </p>
         <p>
-          That's what pulled me into backtesting. It's easy to describe a trading idea that sounds
-          reasonable and much harder to show it survives transaction costs, drawdowns, and the stretches
-          where it simply doesn't work. Building my own engine meant I couldn't hide behind a tidy
-          summary statistic — I had to look at every trade it took and explain the bad ones.
+          The work I've been proudest of so far has been unglamorous. At the Connecticut Judicial
+          Branch I spent a summer reading help desk email, and the pattern that stood out wasn't a
+          clever security problem — it was that urgent requests sat in the same queue as routine ones
+          until somebody got to them. At Bain Capital it was a morning meeting that every employee
+          assembled by hand. Neither is a hard technical problem. Both were worth fixing, and fixing
+          them meant understanding a workflow well enough that the people living in it trusted the
+          replacement.
+        </p>
+        <p>
+          Outside of coursework I play club rugby, and I'm a member of the Finance and Investment
+          Club and ASME.
         </p>
       </div>
       <dl class="skills">
-        <!-- TODO-SKILLS: trim these to what you'd actually be comfortable being asked about. -->
         <dt>Languages</dt>
-        <dd>Python, SQL, R, JavaScript</dd>
-        <dt>Data &amp; analysis</dt>
-        <dd>pandas, NumPy, matplotlib, Excel, Jupyter</dd>
-        <dt>Finance</dt>
-        <dd>Backtesting, technical indicators, risk metrics, financial modeling</dd>
+        <dd>Python, JavaScript, SQL, PowerShell, Bash, HTML, VBA</dd>
+        <dt>Cloud &amp; DevOps</dt>
+        <dd>Microsoft Azure, Azure Advisor, Docker, Kubernetes, Ansible</dd>
+        <dt>Data &amp; analytics</dt>
+        <dd>pandas, NumPy, scikit-learn, Matplotlib, Seaborn, Plotly, Tableau, Power Platform, Excel</dd>
         <dt>Tools</dt>
-        <dd>Git, FastAPI, yfinance</dd>
+        <dd>Git, ServiceNow, Okta, JAMF, VS Code, Figma</dd>
+        <dt>Certifications</dt>
+        <dd>Microsoft Azure Fundamentals (AZ-900)</dd>
       </dl>
     </div>
   </section>
@@ -131,7 +197,7 @@
       <p class="secondary">I'm open to co-op and internship opportunities.</p>
       <div class="pill-stack">
         <a class="pill" href="mailto:beesabathuni.s@northeastern.edu">Email me</a>
-        <a class="pill ghost" href="https://www.linkedin.com/in/TODO-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill ghost" href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener">LinkedIn</a>
         <a class="pill ghost" href="https://github.com/souryavb" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>

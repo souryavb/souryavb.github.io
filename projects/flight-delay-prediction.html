@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predicting Flight Delays at Major U.S. Airports | Sourya Beesabathuni</title>
+  <meta name="description" content="An end-to-end machine learning pipeline predicting flight departure delays at five major U.S. airports, with linear regression implemented from scratch in NumPy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#about">About</a></li>
+      </ul>
+      <a class="brand" href="../index.html">Sourya Beesabathuni</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/souryavb" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="https://github.com/souryavb" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.55v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.67.8.55A11.5 11.5 0 0 0 12 .5z"/></svg>
+        </a>
+        <a href="mailto:beesabathuni.s@northeastern.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="project-head">
+    <div class="container">
+      <h1>Predicting Flight Delays at Major U.S. Airports</h1>
+      <div class="where">Course project, September – December 2025 · Python, NumPy, pandas, scikit-learn, Matplotlib, Seaborn</div>
+      <p class="lead">
+        A three-person team building an end-to-end pipeline for departure delays at BOS, JFK, MIA,
+        DEN, and LAX — including a linear regression written from scratch, and an honest account of
+        where it stops working.
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="render project-render"><img src="../assets/img/regression.svg" alt="Scatter plot of departure delay against scheduled hour with a fitted regression line"></div>
+
+    <ul class="figures">
+      <li><strong>0.305</strong><span>R² (delay duration)</span></li>
+      <li><strong>16.45</strong><span>RMSE, minutes</span></li>
+      <li><strong>61%</strong><span>Classifier accuracy</span></li>
+      <li><strong>0.64</strong><span>AUC</span></li>
+    </ul>
+
+    <div class="prose">
+      <h2>The question</h2>
+      <p>
+        Given only what you know when you book — the airline, the airport, and the scheduled
+        departure hour — how much can you say about whether a flight will leave late?
+      </p>
+      <p>
+        We deliberately restricted ourselves to information available in advance. It would have been
+        easy to improve the numbers by including features that are only known near departure time,
+        but a model that needs to know the aircraft has already arrived late isn't answering the
+        question anyone actually asks.
+      </p>
+
+      <h2>Building the pipeline</h2>
+      <p>
+        We pulled real-time flight data from the AviationStack API across five airports chosen to
+        span different geographies and congestion profiles: Boston, JFK, Miami, Denver, and LAX.
+        Feature engineering came down to three signals — carrier, origin airport, and scheduled
+        departure hour — encoded so that a linear model could use them.
+      </p>
+      <p>
+        The scheduled hour turned out to be the most informative of the three, and in hindsight the
+        most intuitive: delays accumulate through the day as aircraft and crews fall behind, so a
+        6 a.m. departure starts from a clean slate in a way an 8 p.m. departure does not.
+      </p>
+
+      <h2>Regression from scratch</h2>
+      <p>
+        Rather than call <code>scikit-learn</code> and move on, I implemented the linear regression
+        directly with NumPy matrix operations — solving the normal equations rather than treating
+        the fit as a black box. It's a small amount of code, and writing it is the difference
+        between knowing that a model has coefficients and knowing where they come from.
+      </p>
+      <div class="file">
+        <div class="file-name">model.py <span>ordinary least squares via the normal equations</span></div>
+        <div class="file-body">
+<pre>X = np.column_stack([np.ones(len(df)), *encoded_features])
+beta = np.linalg.solve(X.T @ X, X.T @ y)
+
+y_hat    = X @ beta
+residual = y - y_hat
+rmse     = np.sqrt(np.mean(residual ** 2))
+r2       = 1 - residual.var() / y.var()</pre>
+        </div>
+      </div>
+      <p>
+        On held-out data the model reached an R² of 0.305 and an RMSE of 16.45 minutes. That R² is
+        the honest headline: roughly 30% of the variance in delay duration is explained by carrier,
+        airport, and hour. The other 70% is weather, upstream delays, mechanical issues, and air
+        traffic control — none of which we gave it.
+      </p>
+
+      <h2>Where it breaks</h2>
+      <p>
+        The residual analysis was the most instructive part of the project. Plotting residuals
+        against fitted values showed clear heteroscedasticity: the model is reasonably tight for
+        flights it predicts will be roughly on time, and increasingly unreliable for flights it
+        predicts will be badly delayed.
+      </p>
+      <p>
+        That makes sense. Being on time is one state; being delayed can mean twenty minutes or four
+        hours, and the tail is long and driven by causes outside our features. A single linear model
+        fitted across both regimes is being asked to do something it cannot do, and the residual
+        plot says so plainly.
+      </p>
+
+      <h2>Reframing it as a classification</h2>
+      <p>
+        Since predicting the exact number of minutes was the harder problem, we also asked the
+        easier and arguably more useful question: will this flight be more than 15 minutes late —
+        the threshold the FAA uses to call a flight delayed?
+      </p>
+      <p>
+        A logistic regression on the same features reached 61% accuracy with an AUC of 0.64. Better
+        than a coin flip and genuinely informative, but nowhere near something you'd plan around.
+        We reported it that way rather than picking the framing that flattered the result.
+      </p>
+
+      <h2>What I'd do next</h2>
+      <ul>
+        <li>Integrate historical weather at the origin airport, which is the single largest missing driver.</li>
+        <li>Add upstream aircraft rotation — whether the inbound aircraft is already running late — accepting that it narrows when the prediction can be made.</li>
+        <li>Try a model that can represent the two regimes separately, instead of forcing one line through both.</li>
+        <li>Collect across a longer window. Our data covers one stretch of the calendar, and seasonality is clearly not captured.</li>
+      </ul>
+
+      <p class="note">
+        Built with a three-person team. We co-authored a formal research report covering methodology,
+        ethical considerations around using delay predictions, and the improvements above.
+        The from-scratch regression, residual diagnostics, and heteroscedasticity analysis were my
+        contributions.
+      </p>
+
+      <div class="pager" style="margin-top:56px">
+        <a href="okta-meeting-app.html">← Okta Meeting Automation App</a>
+        <a href="helpdesk-triage.html">Automated Help Desk Triage →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Sourya Beesabathuni</span>
+      <span>Boston, MA</span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

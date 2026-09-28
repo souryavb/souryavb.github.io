@@ -79,7 +79,9 @@ h3 { font-size: 1.6rem; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
   padding-top: 48px; padding-bottom: 96px;
 }
-.hero-text { text-align: center; max-width: 500px; justify-self: center; }
+/* width:100% matters — justify-self:center makes this size to its content,
+   which overflows the column on narrow screens without it */
+.hero-text { text-align: center; width: 100%; max-width: 500px; justify-self: center; }
 .hero-text p { color: var(--graphite); margin-top: 22px; }
 .hero .render { aspect-ratio: 1 / 1; border-radius: var(--r-lg); }
 .hero-photo {

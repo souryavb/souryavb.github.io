@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Diagram: an inbox of messages sorted automatically into a priority folder and a standard queue">
+  <style>
+    .row   { fill: #f3f4f6; }
+    .hi    { fill: #1b3a4b; }
+    .bar   { fill: #c9ccd1; }
+    .barw  { fill: #7e94a0; }
+    .box   { fill: none; stroke: #c9ccd1; stroke-width: 2.5; }
+    .flag  { fill: #9c4a3c; }
+    .t     { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 19px; font-weight: 600; }
+    .lab   { fill: #5a5f66; font-family: Archivo, system-ui, sans-serif; font-size: 17px; }
+    .title { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+    .arrow { stroke: #5a5f66; stroke-width: 2.5; fill: none; marker-end: url(#b); }
+  </style>
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5a5f66"/>
+    </marker>
+  </defs>
+
+  <text class="title" x="60" y="46">Help desk inbox, sorted on arrival</text>
+
+  <!-- Incoming messages -->
+  <text class="lab" x="60" y="96">Incoming</text>
+  <g>
+    <rect class="hi"  x="60" y="112" width="270" height="40" rx="9"/>
+    <rect class="barw" x="78" y="127" width="150" height="10" rx="5"/>
+    <circle class="flag" cx="308" cy="132" r="7"/>
+
+    <rect class="row" x="60" y="164" width="270" height="40" rx="9"/>
+    <rect class="bar" x="78" y="179" width="186" height="10" rx="5"/>
+
+    <rect class="row" x="60" y="216" width="270" height="40" rx="9"/>
+    <rect class="bar" x="78" y="231" width="120" height="10" rx="5"/>
+
+    <rect class="hi"  x="60" y="268" width="270" height="40" rx="9"/>
+    <rect class="barw" x="78" y="283" width="168" height="10" rx="5"/>
+    <circle class="flag" cx="308" cy="288" r="7"/>
+
+    <rect class="row" x="60" y="320" width="270" height="40" rx="9"/>
+    <rect class="bar" x="78" y="335" width="140" height="10" rx="5"/>
+  </g>
+
+  <!-- Rule -->
+  <rect class="box" x="370" y="196" width="130" height="92" rx="14"/>
+  <text class="t"   x="395" y="232">VBA</text>
+  <text class="t"   x="395" y="262">rules</text>
+  <path class="arrow" d="M338 236 H366"/>
+
+  <!-- Destinations -->
+  <path class="arrow" d="M504 226 H540 Q552 226 552 210 V150 H586"/>
+  <path class="arrow" d="M504 258 H540 Q552 258 552 274 V330 H586"/>
+
+  <rect class="box" x="590" y="112" width="150" height="76" rx="14"/>
+  <circle class="flag" cx="618" cy="142" r="7"/>
+  <text class="t"   x="634" y="149">Priority</text>
+  <text class="lab" x="612" y="174">escalate now</text>
+
+  <rect class="box" x="590" y="292" width="150" height="76" rx="14"/>
+  <text class="t"   x="612" y="329">Standard</text>
+  <text class="lab" x="612" y="354">24–48 hours</text>
+
+  <text class="lab" x="60" y="430">Flagged by keyword and sender, so urgent security requests</text>
+  <text class="lab" x="60" y="456">stop waiting behind routine ones.</text>
+</svg>

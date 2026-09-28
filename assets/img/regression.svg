@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Scatter plot of flight departure delays against scheduled hour, with a fitted regression line">
+  <style>
+    .axis  { stroke: #0b0c0e; stroke-width: 2.5; }
+    .grid  { stroke: #e6e7e9; stroke-width: 1.5; }
+    .dot   { fill: #5a5f66; opacity: .55; }
+    .fit   { stroke: #1b3a4b; stroke-width: 4; stroke-linecap: round; }
+    .label { fill: #5a5f66; font-family: Archivo, system-ui, sans-serif; font-size: 20px; font-weight: 600; }
+    .title { fill: #0b0c0e; font-family: Archivo, system-ui, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+    .stat  { fill: #1b3a4b; font-family: Archivo, system-ui, sans-serif; font-size: 22px; font-weight: 700; }
+  </style>
+
+  <text class="title" x="80" y="48">Departure delay vs. scheduled hour</text>
+
+  <g class="grid">
+    <line x1="80" y1="180" x2="760" y2="180"/>
+    <line x1="80" y1="310" x2="760" y2="310"/>
+    <line x1="80" y1="440" x2="760" y2="440"/>
+    <line x1="80" y1="570" x2="760" y2="570"/>
+  </g>
+
+  <g class="dot">
+    <circle cx="100" cy="620" r="8"/><circle cx="100" cy="545" r="8"/>
+    <circle cx="140" cy="600" r="8"/><circle cx="140" cy="520" r="8"/>
+    <circle cx="180" cy="575" r="8"/><circle cx="180" cy="505" r="8"/>
+    <circle cx="220" cy="560" r="8"/><circle cx="220" cy="470" r="8"/>
+    <circle cx="260" cy="545" r="8"/><circle cx="260" cy="455" r="8"/>
+    <circle cx="300" cy="520" r="8"/><circle cx="300" cy="430" r="8"/>
+    <circle cx="340" cy="500" r="8"/><circle cx="340" cy="405" r="8"/>
+    <circle cx="380" cy="490" r="8"/><circle cx="380" cy="380" r="8"/>
+    <circle cx="420" cy="455" r="8"/><circle cx="420" cy="360" r="8"/>
+    <circle cx="460" cy="440" r="8"/><circle cx="460" cy="335" r="8"/>
+    <circle cx="500" cy="420" r="8"/><circle cx="500" cy="310" r="8"/>
+    <circle cx="540" cy="395" r="8"/><circle cx="540" cy="290" r="8"/>
+    <circle cx="580" cy="380" r="8"/><circle cx="580" cy="265" r="8"/>
+    <circle cx="620" cy="350" r="8"/><circle cx="620" cy="245" r="8"/>
+    <circle cx="660" cy="330" r="8"/><circle cx="660" cy="225" r="8"/>
+    <circle cx="700" cy="305" r="8"/><circle cx="700" cy="200" r="8"/>
+    <circle cx="740" cy="280" r="8"/><circle cx="740" cy="180" r="8"/>
+  </g>
+
+  <line class="fit" x1="90" y1="594" x2="750" y2="225"/>
+  <text class="stat" x="470" y="140">R² = 0.305</text>
+  <text class="label" x="470" y="168">RMSE 16.45 min</text>
+
+  <line class="axis" x1="80" y1="80" x2="80" y2="700"/>
+  <line class="axis" x1="80" y1="700" x2="760" y2="700"/>
+  <text class="label" x="420" y="745" text-anchor="middle">Scheduled departure hour</text>
+  <text class="label" x="-390" y="42" transform="rotate(-90)" text-anchor="middle">Delay (minutes)</text>
+</svg>
