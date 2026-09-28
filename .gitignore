@@ -1,2 +1,7 @@
 .DS_Store
 Thumbs.db
+
+# UI/UX Pro Max skill files (installed via `uipro init --ai claude`).
+# ~172 files / 4.8MB of local tooling — GitHub Pages would serve these publicly.
+# Reinstall with: uipro init --ai claude
+.claude/
