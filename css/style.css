@@ -98,6 +98,27 @@ h3 { font-size: var(--text-xl); }
   line-height: 1.5;
 }
 
+/* Portrait: square corners and a hairline, like the rest of the site's figures. */
+.intro__grid { display: grid; grid-template-columns: minmax(0, 1fr); }
+.portrait {
+  margin: 0 0 var(--space-lg);
+  width: min(100%, 11rem);
+  background: var(--color-paper-2);
+  border: var(--rule-hair) solid var(--color-rule);
+}
+.portrait img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+@media (min-width: 48em) {
+  .intro__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 16rem);
+    grid-template-areas: "title photo" "lede photo";
+    column-gap: var(--space-2xl);
+    align-items: start;
+  }
+  .intro__grid h1    { grid-area: title; }
+  .intro__grid .lede { grid-area: lede; }
+  .portrait { grid-area: photo; width: 100%; margin: 0; }
+}
+
 /* ---------- Work map ---------- */
 .map { position: relative; padding-bottom: var(--space-2xl); }
 .map__grid {
@@ -362,6 +383,43 @@ h3 { font-size: var(--text-xl); }
   .pager { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .pager__next { grid-column: 2; text-align: right; }
 }
+
+/* D3 chart (js/rsi-chart.js). Every colour is a token; the script only sets classes. */
+.chart { position: relative; margin: var(--space-xl) 0; }
+.chart__title { font-size: var(--text-lg); margin-bottom: var(--space-sm); }
+.chart__plot { position: relative; width: 100%; min-height: 15rem; }
+.chart__plot svg { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
+.chart text { font-family: var(--font-mono); font-stretch: var(--stretch-mono); font-size: 10px; fill: var(--color-muted); }
+.chart .axis path, .chart .axis line { stroke: var(--color-rule-strong); }
+.chart .grid line { stroke: var(--color-rule); }
+.chart .grid path { display: none; }
+.chart .axis-label { fill: var(--color-ink-2); }
+.chart .held { fill: var(--color-paper-2); }
+.chart .line { fill: none; stroke-linejoin: round; }
+.chart .line--strategy { stroke: var(--color-analysis); stroke-width: 2; }
+.chart .line--hold { stroke: var(--color-ink-2); stroke-width: 1.25; }
+.chart .end-label--strategy { fill: var(--color-analysis-ink); }
+.chart .end-label--hold { fill: var(--color-ink-2); }
+.chart .cursor { stroke: var(--color-ink); stroke-width: 1; }
+.chart .dot--strategy { fill: var(--color-analysis); }
+.chart .dot--hold { fill: var(--color-ink-2); }
+.chart__tip {
+  position: absolute; top: 0; left: 0; z-index: 2;
+  min-width: 11rem;
+  padding: var(--space-2xs) var(--space-xs);
+  background: var(--color-paper);
+  border: var(--rule-hair) solid var(--color-ink);
+  font-family: var(--font-mono); font-stretch: var(--stretch-mono); font-size: var(--text-xs);
+  line-height: 1.6; color: var(--color-ink);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-short) var(--ease-out);
+}
+.chart__tip.is-on { opacity: 1; }
+.chart__tip dl { display: grid; grid-template-columns: auto auto; gap: 0 var(--space-sm); margin: var(--space-3xs) 0 0; }
+.chart__tip dt { color: var(--color-muted); }
+.chart__tip dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.chart__error { color: var(--color-muted); font-size: var(--text-sm); }
 
 /* 404 */
 .lost { padding: var(--space-3xl) 0; }

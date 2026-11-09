@@ -113,6 +113,20 @@
           that from you.
         </p>
 
+        <!-- Interactive chart: js/rsi-chart.js draws it with D3 from
+             assets/data/rsi-backtest.json, which is exported from a real run of
+             sp500_rsi_trader with --end 2026-09-27. -->
+        <figure class="chart" id="equity-chart">
+          <h3 class="chart__title">Growth of $100,000: RSI strategy vs. buy-and-hold</h3>
+          <div class="chart__plot"></div>
+          <figcaption class="caption">
+            Daily portfolio value for both approaches on ^GSPC, from October 2020 (after the 200-day
+            indicator warm-up) to September 2026. Shaded bands
+            are the six periods the strategy held a position; the rest of the time it sat in
+            cash. Hover or tap along the chart for the values on any day.
+          </figcaption>
+        </figure>
+
         <div class="file">
           <div class="file-name mono">trades <span>every closed position, 2020–2026</span></div>
           <div class="file-body">
@@ -204,6 +218,8 @@ $ uvicorn server:app --reload --port 8000</pre>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/rsi-chart.js"></script>
 </body>
 </html>
